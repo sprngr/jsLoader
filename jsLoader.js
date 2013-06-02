@@ -50,7 +50,7 @@ jsLoader = {
 
                 if (jsTag[i].hasAttribute("data-options")) {
                     console.log("Options set: ");
-                    var options = new jsLoader;
+                    var options = {};
                     var optionsArray = jsTag[i].dataset.options.split(",");
                     for (var o = 0; o < optionsArray.length; o++) {
                         console.log(optionsArray[o].trim());
@@ -97,7 +97,7 @@ jsLoader = {
             if (jsTag[i].hasAttribute("data-src")) {
 
                 if (jsTag[i].hasAttribute("data-options")) {
-                    var options = jsLoader.options;
+                    var options = {};
                     var optionsArray = jsTag[i].dataset.options.split(",");
                     for (var o = 0; o < optionsArray.length; o++) {
 
@@ -126,7 +126,7 @@ jsLoader = {
                 }
 
                 var jsDir = "";
-                if (options.directory !== "") {
+                if (options.directory !== "" && options.directory !== undefined) {
                     jsDir = (options.directory.endsWith("/")) ? options.directory + "" : options.directory + "/";
                 }
 
@@ -157,4 +157,6 @@ jsLoader = {
 
     }
 };
-console.log(jsLoader.options);
+
+//Autorun jsLoader.tag()4
+if (document.querySelectorAll('[data-type="jsLoader"]').length > 0) jsLoader.tag();
