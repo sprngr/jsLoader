@@ -1,7 +1,7 @@
 /* ==========================================================================
- jsLoader - a nifty javascript loader
+ jsLoader - a nifty javascript lazy loader
  author: Michael Springer <mike@sprngr.me>
- version: 0.1
+ version: 0.4
  license: MIT License
  ========================================================================== */
 
@@ -9,19 +9,13 @@
 var head = document.getElementsByTagName("head")[0];
 
 //Borrowed polyfill from Mozilla
-//https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/endsWith
-if (!String.prototype.endsWith) {
-    Object.defineProperty(String.prototype, 'endsWith', {
-        enumerable: false,
-        configurable: false,
-        writable: false,
-        value: function (searchString, position) {
-            "use strict";
-            position = position || this.length;
-            position = position - searchString.length;
-            return this.lastIndexOf(searchString) === position;
-        }
-    });
+if (typeof String.prototype.endsWith !== 'function') {
+    String.prototype.endsWith = function (searchString, position) {
+        "use strict";
+        position = position || this.length;
+        position = position - searchString.length;
+        return this.lastIndexOf(searchString) === position;
+    }
 }
 
 //Trims whitespace
@@ -36,6 +30,7 @@ if (typeof String.prototype.trim !== 'function') { // detect native implementati
 //The fun stuff
 jsLoader = {
 
+    //Debug doesn't create any script tags
     debug: function () {
         "use strict";
         console.log("::: jsLoader Debug :::");
@@ -135,7 +130,7 @@ jsLoader = {
                 for (var k = 0; k < jsList.length; k++) {
                     if (jsList[k] !== undefined) {
                         if (jsList[k] && options.allowURL) {
-
+                            //Doesn't do anything at the moment, I forgot to finish it out :/
                         } else {
                             if (jsList[k].endsWith(".js") && options.allowNoExt) {
                                 jsList[k] = jsList[k].substring(0, jsList[k].length - 3);
@@ -154,9 +149,6 @@ jsLoader = {
     },
 
     load: function () {
-
+        //TODO this thing
     }
 };
-
-//Autorun jsLoader.tag()4
-if (document.querySelectorAll('[data-type="jsLoader"]').length > 0) jsLoader.tag();

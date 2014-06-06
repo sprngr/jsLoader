@@ -2,15 +2,14 @@
 <html>
 <head>
     <title>jsLoader</title>
-    <meta data-type="jsLoader" data-src="foo.js,bar.js,foobar.js" data-options="allowURL: true, allowNoExt: false">
-    <meta data-type="jsLoader" data-sr="foo.js,bar.js,foobar.js">
+    <meta data-type="jsLoader" data-src="foo.js,bar.js,foobar.js,foobizzle.js">
 </head>
 <body>
-    Open up the javascript debug console to see what's actually happening.
+    Open up the javascript debug console / inspect page to see what's actually happening.
     <script type="text/javascript" src="jsLoader.js"></script>
     <script type="text/javascript">
         jsLoader.debug();
-        //jsLoader.tag();
+        jsLoader.tag();
     </script>
 </body>
 </html>
