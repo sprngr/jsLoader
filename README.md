@@ -1,4 +1,4 @@
-# _jsLoader.js_
+# jsLoader.js
 
 A javascript lazy loader I putzed around with for a quick way to add js to a page.
 
