@@ -37,4 +37,8 @@ To utilize any of the following options, include a `data-options` attribute on y
 
 `allowUrl` [Boolean] : (Unimplemented) Allows you to include javascript files via url with either http(s) or relative protocol.
 
+Notes
+-----
+This is nowhere near complete, the core functionality I wanted exists and was primarily for a simple solution that could probably be implemented better with time.
 
+I plan to finish out the options system as well the `load()` function to allow you to run the loader via JS without a tag and possibly asynchronously.
