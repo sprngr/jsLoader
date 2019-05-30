@@ -1,5 +1,7 @@
 # jsLoader.js
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 A javascript lazy loader I putzed around with for a quick way to add js to a page.
 
 Installation
